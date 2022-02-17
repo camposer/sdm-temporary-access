@@ -4,9 +4,8 @@
 name: main
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types: [closed]
   workflow_dispatch:
 
 jobs:
