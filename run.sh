@@ -2,6 +2,7 @@
 
 echo "Checking pending requests..."
 git fetch
+git reset --hard main
 git diff --name-only HEAD@{0} HEAD@{1} | while read line; do 
     resource_name=$(echo $line | awk '/^resources/ { gsub("resources/", "", $0); print $0 }')
     if [ "$resource_name" != "" ]; then
