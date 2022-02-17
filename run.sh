@@ -2,8 +2,7 @@
 
 echo "Checking pending requests..."
 git checkout main
-git fetch --all
-echo "logs: $(git log)"
+git pull
 git diff --name-only HEAD HEAD^ | while read line; do 
     resource_name=$(echo $line | awk '/^resources/ { gsub("resources/", "", $0); print $0 }')
     if [ "$resource_name" != "" ]; then
