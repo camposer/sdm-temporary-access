@@ -1,10 +1,8 @@
 #!/bin/bash
 
-git fetch
-cap=$(git branch)
-echo "cap: $cap"
 echo "Checking pending requests..."
-git diff --name-only origin/main | while read line; do 
+git fetch
+git diff --name-only main | while read line; do 
     resource_name=$(echo $line | awk '/^resources/ { gsub("resources/", "", $0); print $0 }')
     if [ "$resource_name" != "" ]; then
         raw_user_email=$(git log -p -- $line | grep Author | head -1)
