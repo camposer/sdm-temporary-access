@@ -4,9 +4,9 @@
 name: main
 
 on:
-  workflow_run:
-    workflows: ["main"]
-    branches: [ main ]
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
