@@ -1,5 +1,6 @@
 #!/bin/bash
 
+git fetch
 cap=$(git branch)
 echo "cap: $cap"
 echo "Checking pending requests..."
