@@ -2,8 +2,8 @@
 
 echo "Checking pending requests..."
 git checkout main
-git fetch --all --tags
-git diff --name-only HEAD HEAD~1 | while read line; do 
+git fetch --all
+git diff --name-only HEAD HEAD^ | while read line; do 
     resource_name=$(echo $line | awk '/^resources/ { gsub("resources/", "", $0); print $0 }')
     if [ "$resource_name" != "" ]; then
         raw_user_email=$(git log -p -- $line | grep Author | head -1)
