@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  gh-access:
+  sdm-access:
     runs-on: ubuntu-latest
 
     steps:
